@@ -140,7 +140,7 @@ void loop()
     if (keyStates[i] == true && lastKeyStates[i] == false) {
       // play audio clip
       Serial.println("pre play");
-      AudioOutI2S.play(waveFiles[NUM_KEYS - i]);
+      AudioOutI2S.play(waveFiles[i]);
       Serial.println("post play");
       lastKeyStates[i] = true;
     }
@@ -150,5 +150,5 @@ void loop()
   }
   if (!isAnyKeyPressed)
     Serial.println("Audio stop");
-    //AudioOutI2S.stop();
+    AudioOutI2S.stop();
 }
